@@ -13,37 +13,36 @@
 	const updateDimensions = () => {
 		itemWidth = carousel.children[0].offsetWidth;
 		translateNumber = itemWidth + gap;
-		gsap.set('.moving', { x: -(translateNumber * index) });
+		ctx.add(() => {
+			gsap.set('.moving', { x: -(translateNumber * index) });
+		}, carousel);
 	};
 
 	onMount(() => {
+		ctx = gsap.context(() => {}, carousel);
 		updateDimensions();
 		return () => ctx && ctx.revert();
 	});
 
 	const click = (e) => {
-		ctx = gsap.context(() => {
+		ctx.add(() => {
 			let targetIndex = parseInt(e.target.dataset.index);
 
 			if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex < totalElement) {
 				index = targetIndex;
-				gsap.to('.moving', { x: -(translateNumber * index) });
+				gsap.to('.moving', { x: -(translateNumber * index), duration: 1, ease: 'power2.inOut' });
 			} else if (e.target.dataset.plus !== undefined && index < totalElement - 1) {
 				index++;
-				gsap.to('.moving', { x: -(translateNumber * index) });
+				gsap.to('.moving', { x: -(translateNumber * index), duration: 1, ease: 'power2.inOut' });
 			} else if (e.target.dataset.minus !== undefined && index > 0) {
 				index--;
-				gsap.to('.moving', { x: -(translateNumber * index) });
+				gsap.to('.moving', { x: -(translateNumber * index), duration: 1, ease: 'power2.inOut' });
 			}
 		}, carousel);
 	};
-
-	const resize = () => {
-		updateDimensions();
-	};
 </script>
 
-<svelte:window onresize={resize} />
+<svelte:window onresize={updateDimensions} />
 
 <section class="work">
 	<h3>What we’ve done.</h3>
