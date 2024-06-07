@@ -10,6 +10,7 @@
 	--grey2: rgba(210, 210, 215, 0.64);
 	--grey3: rgba(0, 0, 0, 0.56);
 	--orange: #ff5a00;
+	--orange2: #ff6716;
 	--white: #ffffff;
 	--base-width: 980px;
 	font-family: 'Inter', sans-serif;
@@ -19,6 +20,11 @@
 }
 
 /* reset */
+
+body {
+	overflow-x: hidden;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;

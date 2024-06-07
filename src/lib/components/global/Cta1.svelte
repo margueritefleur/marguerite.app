@@ -1,4 +1,29 @@
-<button
+<script>
+	import gsap from 'gsap';
+	import { onMount } from 'svelte';
+
+	let ctx, button;
+
+	onMount(() => {
+		return () => ctx.revert();
+	});
+
+	const mouseEnter = () => {
+		ctx = gsap.context(() => {
+			gsap.to('span', { scale: 1.06, duration: 0.2, ease: 'back.out(1.7)' });
+			gsap.to('span svg g', { opacity: 1, duration: 0.2 });
+		}, button);
+	};
+
+	const mouseLeave = () => {
+		ctx = gsap.context(() => {
+			gsap.to('span', { scale: 1, duration: 0.2 });
+			gsap.to('span svg g', { opacity: 0.8, duration: 0.2 });
+		}, button);
+	};
+</script>
+
+<button bind:this={button} onmouseenter={mouseEnter} onmouseleave={mouseLeave}
 	>Get Your Free Audit <span
 		><svg xmlns="http://www.w3.org/2000/svg" width="36" height="37" viewBox="0 0 36 37" fill="none">
 			<g opacity="0.8">
