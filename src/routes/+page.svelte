@@ -1,6 +1,7 @@
 <script>
 	import Hero from '$lib/components/pages/home/Hero.svelte';
 	import Work from '$lib/components/pages/home/Work.svelte';
+	import Footer from '../lib/components/global/Footer.svelte';
 	import BuildInPublic from '../lib/components/pages/home/BuildInPublic.svelte';
 	import Guarantee from '../lib/components/pages/home/Guarantee.svelte';
 	import Services from '../lib/components/pages/home/Services.svelte';
@@ -12,6 +13,8 @@
 	<Guarantee />
 	<Services />
 	<BuildInPublic />
+
+	<Footer />
 </div>
 
 <style>
