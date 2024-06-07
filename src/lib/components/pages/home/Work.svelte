@@ -8,11 +8,16 @@
 	let gap = 20;
 	let index = 0;
 	let totalElement = 3;
+	let itemWidth;
+
+	const updateDimensions = () => {
+		itemWidth = carousel.children[0].offsetWidth;
+		translateNumber = itemWidth + gap;
+		gsap.set('.moving', { x: -(translateNumber * index) });
+	};
 
 	onMount(() => {
-		let itemWidth = carousel.children[0].offsetWidth;
-		translateNumber = itemWidth + gap;
-
+		updateDimensions();
 		return () => ctx && ctx.revert();
 	});
 
@@ -32,7 +37,13 @@
 			}
 		}, carousel);
 	};
+
+	const resize = () => {
+		updateDimensions();
+	};
 </script>
+
+<svelte:window onresize={resize} />
 
 <section class="work">
 	<h3>What we’ve done.</h3>
