@@ -60,6 +60,7 @@
 			margin-bottom: 120px;
 			strong {
 				color: var(--black);
+				font-weight: 600;
 			}
 		}
 	}
