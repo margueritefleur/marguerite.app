@@ -1,11 +1,13 @@
 <script>
 	import Hero from '$lib/components/pages/home/Hero.svelte';
 	import Work from '$lib/components/pages/home/Work.svelte';
+	import Guarantee from '../lib/components/pages/home/Guarantee.svelte';
 </script>
 
 <div id="home">
 	<Hero />
 	<Work />
+	<Guarantee />
 </div>
 
 <style>
