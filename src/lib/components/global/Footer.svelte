@@ -12,8 +12,6 @@
 		<a href="/contact">Contact</a>
 	</div>
 
-	<div class="marguerite">Marguerite</div>
-
 	{#each Array(3) as _, i}
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -117,12 +115,5 @@
 			width: 17.657px;
 			height: 17.657px;
 		}
-	}
-
-	.marguerite {
-		font-size: 17vw;
-		font-weight: 700;
-		position: relative;
-		top: 90px;
 	}
 </style>

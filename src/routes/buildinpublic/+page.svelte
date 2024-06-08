@@ -49,7 +49,7 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		margin-bottom: 20svh;
+		margin-bottom: 10svh;
 
 		h1 {
 			font-size: 24px;
@@ -74,7 +74,7 @@
 	}
 
 	.transactions {
-		padding-top: 20svh;
+		padding-top: 10svh;
 
 		width: var(--base-width);
 		margin: auto;

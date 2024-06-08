@@ -25,7 +25,7 @@
 	};
 </script>
 
-<button bind:this={button} onmouseenter={mouseEnter} onmouseleave={mouseLeave}
+<a href="/audit" bind:this={button} onmouseenter={mouseEnter} onmouseleave={mouseLeave}
 	>Get Your Free Audit <span
 		><svg xmlns="http://www.w3.org/2000/svg" width="36" height="37" viewBox="0 0 36 37" fill="none">
 			<g opacity="0.8">
@@ -35,11 +35,11 @@
 				/>
 			</g>
 		</svg></span
-	></button
+	></a
 >
 
 <style>
-	button {
+	a {
 		border-radius: 32px;
 		background: rgba(232, 232, 237, 0.8);
 		backdrop-filter: blur(10px);
