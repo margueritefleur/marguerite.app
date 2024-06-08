@@ -1,12 +1,21 @@
+<script>
+	import { page } from '$app/stores';
+</script>
+
 <nav>
 	<div class="container">
 		<div class="left"></div>
 
 		<div class="right">
-			<a href="/">Home</a>
-			<a href="/work">Work</a>
-			<a href="/buildinpublic">Build In Public</a>
-			<a href="/blog">Blog</a>
+			<a href="/">Home <span class={$page.url.pathname === '/' ? 'visible' : ''}></span></a>
+			<a href="/work">Work <span class={$page.url.pathname === '/work' ? 'visible' : ''}></span></a>
+			<a href="/buildinpublic"
+				>Build In Public <span class={$page.url.pathname === '/buildinpublic' ? 'visible' : ''}
+				></span></a
+			>
+			<a href="/blog"
+				>Blog <span class={$page.url.pathname === '/blog' ? 'visible' : ''}></span>
+			</a>
 			<button>Free Audit</button>
 			<a href="/contact">Contact</a>
 		</div>
@@ -43,7 +52,7 @@
 
 	.right {
 		display: flex;
-		gap: 20px;
+		gap: 10px;
 		align-items: center;
 
 		& a,
@@ -53,6 +62,30 @@
 
 		& a:hover {
 			color: var(--grey3);
+		}
+
+		a {
+			position: relative;
+			padding: 10px;
+		}
+
+		span {
+			width: 5px;
+			height: 5px;
+			border-radius: 999px;
+			background-color: var(--blue);
+			position: absolute;
+			left: 50%;
+			bottom: 1px;
+			transform: translateX(-50%);
+			opacity: 0;
+			transform: translateY(-2px);
+			transition: all 0.3s;
+
+			&.visible {
+				opacity: 1;
+				transform: translateY(0px) translateX(-50%);
+			}
 		}
 
 		& a[href='/contact'] {
