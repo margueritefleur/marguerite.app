@@ -2,6 +2,10 @@
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
 
+	const { data } = $props();
+
+	console.log(data.records);
+
 	let ctx, services;
 
 	let gap = 20;
@@ -53,14 +57,12 @@
 	<div class="carousel">
 		<div class="moving">
 			<div class="invisible-card"></div>
-			{#each Array(5) as _, i}
+			{#each data.records as { title, description, svg }, i}
 				<div class="card">
-					<div class="svg"></div>
-					<div class="title">Lorem, ipsum dolor.</div>
+					<div class="svg">{@html svg}</div>
+					<div class="title">{title}</div>
 					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ut adipisci corrupti
-						corporis mollitia magnam repellat dolorem tempore sed et, eum voluptatem non tempora
-						sequi aspernatur inventore saepe autem esse.
+						{description}
 					</div>
 				</div>
 			{/each}
@@ -144,7 +146,6 @@
 		.svg {
 			width: 42px;
 			height: 42px;
-			background-color: red;
 		}
 
 		.title {

@@ -5,13 +5,15 @@
 	import BuildInPublic from '../lib/components/pages/home/BuildInPublic.svelte';
 	import Guarantee from '../lib/components/pages/home/Guarantee.svelte';
 	import Services from '../lib/components/pages/home/Services.svelte';
+
+	const { data } = $props();
 </script>
 
 <div id="home">
 	<Hero />
 	<Work />
 	<Guarantee />
-	<Services />
+	<Services {data} />
 	<BuildInPublic />
 
 	<Footer />
