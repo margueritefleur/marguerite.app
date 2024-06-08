@@ -26,7 +26,9 @@
 	"type": "module",
 	"dependencies": {
 		"@splinetool/runtime": "^1.5.4",
+		"@vinejs/vine": "^2.1.0",
 		"gsap": "^3.12.5",
-		"pocketbase": "^0.21.3"
+		"pocketbase": "^0.21.3",
+		"resend": "^3.2.0"
 	}
 }

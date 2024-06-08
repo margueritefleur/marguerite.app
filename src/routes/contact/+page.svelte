@@ -1,9 +1,17 @@
+<script>
+	import { enhance } from '$app/forms';
+
+	let { form } = $props();
+
+	$inspect(form);
+</script>
+
 <div id="contact">
 	<h1>We’ve been waiting for you</h1>
 
-	<form action="" method="post">
+	<form action="?/contact" method="post" use:enhance>
 		<div class="input-container">
-			<input type="text" name="" id="" placeholder="ENTER YOUR NAME" />
+			<input type="text" name="name" id="name" placeholder="ENTER YOUR NAME" />
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="22"
@@ -26,7 +34,7 @@
 			</svg>
 		</div>
 		<div class="input-container">
-			<input type="email" name="" id="" placeholder="ENTER YOUR EMAIL" />
+			<input type="email" name="email" id="email" placeholder="ENTER YOUR EMAIL" />
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="22"
@@ -49,7 +57,7 @@
 			</svg>
 		</div>
 		<div class="input-container">
-			<textarea name="" id="" placeholder="WRITE US SOMETHING"></textarea>
+			<textarea name="description" id="description" placeholder="WRITE US SOMETHING"></textarea>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="22"
@@ -73,6 +81,24 @@
 		</div>
 		<button type="submit">SUBMIT</button>
 	</form>
+
+	<div class="errors">
+		{#if form?.errors?.name}
+			{form.errors.name.message}
+		{/if}
+		{#if form?.errors?.email}
+			{form.errors.email.message}
+		{/if}
+		{#if form?.errors?.description}
+			{form.errors.description.message}
+		{/if}
+	</div>
+
+	<div class="succes">
+		{#if form?.success}
+			<p>The form is has been sent successfully</p>
+		{/if}
+	</div>
 </div>
 
 <style>
